@@ -16,13 +16,7 @@ contract TestAiAmmSwapPay is IAiAmmSwapCallback {
         uint256 pay0,
         uint256 pay1
     ) external {
-        IAiAmmPool(pool).swap(
-            recipient,
-            zeroForOne,
-            amountSpecified,
-            sqrtPriceX96,
-            abi.encode(msg.sender, pay0, pay1)
-        );
+        IAiAmmPool(pool).swap(recipient, zeroForOne, amountSpecified, sqrtPriceX96, abi.encode(msg.sender, pay0, pay1));
     }
 
     function aiAmmSwapCallback(

@@ -74,17 +74,9 @@ contract TestAiAmmRouter is IAiAmmSwapCallback {
             );
         } else {
             if (amount0Delta > 0) {
-                IERC20Minimal(IAiAmmPool(msg.sender).token0()).transferFrom(
-                    payer,
-                    msg.sender,
-                    uint256(amount0Delta)
-                );
+                IERC20Minimal(IAiAmmPool(msg.sender).token0()).transferFrom(payer, msg.sender, uint256(amount0Delta));
             } else {
-                IERC20Minimal(IAiAmmPool(msg.sender).token1()).transferFrom(
-                    payer,
-                    msg.sender,
-                    uint256(amount1Delta)
-                );
+                IERC20Minimal(IAiAmmPool(msg.sender).token1()).transferFrom(payer, msg.sender, uint256(amount1Delta));
             }
         }
     }
